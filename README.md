@@ -1,4 +1,4 @@
-angular-googlemaps-zip-search
-=============================
+# Angular.js Google Maps Zip Code Search Module
 
-This module takes any valid zip code and plots a google maps marker
+# Description
+ - This module takes any valid zip code and plots a google maps marker

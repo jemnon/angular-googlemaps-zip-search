@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="googleMaps">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Angularjs Google Maps Zip Code Search</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Angularjs Zip Code Search</h1>
+        </header>
+        <div class="map" ng-controller="GoogleMapsCtrl">
+            <section class="map-header">
+                <form name="zipsearch" ng-submit="setZip()" ng-cloak>
+                    <input 
+                        type="text" 
+                        class="zip-search" 
+                        name="zip" 
+                        z-Keypress
+                        ng-pattern="/^\d{5}(-\d{4})?$/"
+                        required
+                        placeholder="Zip Code..." 
+                        maxlength="5" 
+                        minlengnth="5"
+                        ng-model="zip.value">
+
+                        <input type="submit" class="btn" value="Submit" ng-disabled="zipsearch.$invalid">
+                </form>
+            </section>
+            <map id="map_canvas" class="google-maps"></map>
+        </div>
+    </div>
+
+    <!--Google Maps-->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <!-- App -->
+    <script src="js/main.js"></script>
+    <!--<script src="js/main.min.js"></script>-->
+</body>
+</html>
