@@ -4,6 +4,7 @@
  - This module takes any valid zip code and plots a google maps marker
 
 # Controller
+
 function GoogleMapsCtrl($scope, $http) {
     'use strict';
 
@@ -31,6 +32,7 @@ function GoogleMapsCtrl($scope, $http) {
 }
 
 # Directive
+
 googleMapsApp.directive('map', function() {
     return {
         restrict: 'E',
