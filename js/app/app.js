@@ -5,6 +5,6 @@
  */
 
 var googleMapsApp = angular.module('googleMaps', [
-	'ui.bootstrap',
+    'ui.bootstrap',
     'ui.config'
 ]);

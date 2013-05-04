@@ -1,12 +1,12 @@
 function GoogleMapsCtrl($scope, $http) {
     'use strict';
 
-	$scope.setZip = function() { 
+    $scope.setZip = function() { 
         $scope.currentZip = $scope.zip.value;
         $scope.geocodeZip();
-	};
+    };
 
-	$scope.geocodeZip = function() {
+    $scope.geocodeZip = function() {
         var geocoder = new google.maps.Geocoder();
 
         geocoder.geocode({address: $scope.currentZip},
@@ -21,5 +21,5 @@ function GoogleMapsCtrl($scope, $http) {
                 $scope.panMap();
             }    
         });
-	};
+    };
 }
