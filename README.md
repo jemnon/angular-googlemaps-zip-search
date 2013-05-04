@@ -3,8 +3,10 @@
 # Description
  - This module takes any valid zip code and plots a google maps marker
 
-# Controller
+## Controller
 __________________________________________________________________________
+
+```javascript
 
 function GoogleMapsCtrl($scope, $http) {
     'use strict';
@@ -32,8 +34,14 @@ function GoogleMapsCtrl($scope, $http) {
     };
 }
 
-# Directive
+/* EOF */
+
+```
+
+## Directive
 __________________________________________________________________________
+
+```javascript
 
 googleMapsApp.directive('map', function() {
     return {
@@ -76,6 +84,10 @@ googleMapsApp.directive('map', function() {
         }
     };
 });
+
+/* EOF */
+
+```
 
 # Lisence
 The MIT License (MIT)
