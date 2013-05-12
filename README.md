@@ -27,7 +27,9 @@ function GoogleMapsCtrl($scope, $http) {
                 $scope.latitude  = lat;
                 $scope.longitude = lng;
 
+                $scope.clearMarker();
                 $scope.panMap();
+                $scope.setMarker();
             }    
         });
     };
@@ -46,7 +48,7 @@ googleMapsApp.directive('map', function() {
         template: '<div></div>',
         link: function($scope, element, attrs) {            
             var defaultLatLng = new google.maps.LatLng(37.5483, -122.1);
-            
+
             var myOptions = {
                 center: defaultLatLng,
                 zoom: 10,
@@ -60,6 +62,24 @@ googleMapsApp.directive('map', function() {
                 geocoder     = new google.maps.Geocoder(),
                 markersArray = [];
 
+            // Pan to map to marker
+            $scope.panMap = function() {
+                var latLng = new google.maps.LatLng($scope.latitude, $scope.longitude);
+                map.panTo(latLng);
+                map.setZoom(10);
+
+                $scope.clearMarker();
+            };
+
+            // Removes Marker from Map
+            $scope.clearMarker = function() {
+                if(markersArray) {
+                    for (var i in markersArray) {
+                        markersArray[i].setMap(null);
+                    }
+                }
+            };
+
             // Set Marker
             $scope.setMarker = function() {
                 var marker = new google.maps.Marker({
@@ -67,15 +87,8 @@ googleMapsApp.directive('map', function() {
                     map: map,
                     draggable: false
                 });
-            };
 
-            // Pan to map to marker
-            $scope.panMap = function() {
-                var latLng = new google.maps.LatLng($scope.latitude, $scope.longitude);
-                map.panTo(latLng);
-                map.setZoom(10);
-
-                $scope.setMarker();
+                markersArray.push(marker);
             };
         }
     };
