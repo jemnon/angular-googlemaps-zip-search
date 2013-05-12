@@ -18,7 +18,9 @@ function GoogleMapsCtrl($scope, $http) {
                 $scope.latitude  = lat;
                 $scope.longitude = lng;
 
+                $scope.clearMarker();
                 $scope.panMap();
+                $scope.setMarker();
             }    
         });
     };
