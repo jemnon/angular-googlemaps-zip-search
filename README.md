@@ -62,7 +62,7 @@ googleMapsApp.directive('map', function() {
                 geocoder     = new google.maps.Geocoder(),
                 markersArray = [];
 
-            // Pan to map to marker
+            // Pan map to coordinates
             $scope.panMap = function() {
                 var latLng = new google.maps.LatLng($scope.latitude, $scope.longitude);
                 map.panTo(latLng);
@@ -71,7 +71,7 @@ googleMapsApp.directive('map', function() {
                 $scope.clearMarker();
             };
 
-            // Removes Marker from Map
+            // Removes marker from map
             $scope.clearMarker = function() {
                 if(markersArray) {
                     for (var i in markersArray) {
@@ -80,7 +80,7 @@ googleMapsApp.directive('map', function() {
                 }
             };
 
-            // Set Marker
+            // Set marker
             $scope.setMarker = function() {
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng($scope.latitude, $scope.longitude),
